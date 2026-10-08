@@ -46,3 +46,8 @@ npm run deploy        # 部署 wrangler.toml 中 main 指定的文件
 ```
 
 `wrangler.toml` 的 `[vars]` 中列出了可用的环境变量。
+
+### 用 Claude Code 部署
+
+在仓库目录中运行 `/deploy [workers|pages] [名称] [vless|socks5] [分支]`，例如 `/deploy pages my-edgetunnel vless main`。
+UUID 等变量从环境变量 `EDGETUNNEL_UUID`、`EDGETUNNEL_PROXYIP`、`EDGETUNNEL_SOCKS5`、`EDGETUNNEL_SOCKS5_PIPELINE`、`EDGETUNNEL_DEBUG` 读取，以 secret 方式设置。完整步骤见 `.claude/commands/deploy.md`。
