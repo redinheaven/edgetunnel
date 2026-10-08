@@ -1,11 +1,13 @@
 {
   "name": "edgetunnel",
   "version": "1.0.0",
-  "description": "Delete code, but keep the project for the sake of memories. I'm only create this project for fun, for try new things and for learn by doing. **I'm even not write any outside marketing post for this project. Just for my own fun...** But I feel emotional damage by the community.",
-  "main": "index.js",
+  "description": "VLESS over WebSocket proxy running on Cloudflare Workers, with optional SOCKS5 outbound.",
+  "main": "src/worker-vless.js",
   "scripts": {
-    "deploy": "wrangler publish",
-    "dev-vless": "wrangler dev src/worker-vless.js"
+    "deploy": "wrangler deploy",
+    "dev-vless": "wrangler dev src/worker-vless.js",
+    "dev-socks5": "wrangler dev src/worker-with-socks5-experimental.js",
+    "test": "node test/worker-mock-test.mjs"
   },
   "author": "",
   "license": "ISC",

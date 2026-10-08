@@ -4,8 +4,13 @@ name = "cf-worker-ws-dev-0415" # todo
 
 #main = "test/worker/worker-connect-test.js"
 main = "src/worker-vless.js"
+# main = "src/worker-with-socks5-experimental.js"
 
 compatibility_date = "2024-04-15"
 
 [vars]
 # UUID = "example_dev_token"
+# PROXYIP = ""                 # fallback host when direct connect has no data (e.g. Cloudflare IP)
+# DEBUG = "true"               # enable console.log, default off
+# SOCKS5 = "user:pass@host:port"   # socks5 build only, overrides PROXYIP
+# SOCKS5_PIPELINE = "true"     # socks5 build only, send handshake in one write
