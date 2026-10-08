@@ -1,9 +1,20 @@
 ---
-description: 拉取最新代码并部署 edgetunnel 到 Cloudflare Workers 或 Pages
+description: 拉取最新代码并部署 edgetunnel 到 Cloudflare Workers 或 Pages（有项目被封禁的风险，需先确认）
 argument-hint: "[workers|pages] [名称] [vless|socks5] [分支]"
 ---
 
 任务：在当前仓库拉取最新代码，部署到 Cloudflare。按步骤执行，每步检查结果，失败就停下并报告原因，不要猜测或绕过。
+
+## 0. 风险确认（必须先完成）
+
+在执行任何其他步骤前，把下面这段原文展示给我：
+
+> - 已观察到的情况（2026-10-08）：本仓库 commit `af3bc4d` 部署到新建的 Cloudflare Pages 项目，第一次部署成功，第二次部署时报错 `Your Pages project has been blocked. Contact abusereply@cloudflare.com. [code: 8000119]`，项目被封禁。Cloudflare 没有说明封禁原因。
+> - Cloudflare Self-Serve Subscription Agreement 第 2.2.1(j) 条禁止使用其服务提供 VPN 或类似代理服务。本项目是代理程序。
+> - 部署后项目可能被封禁，账户也可能受牵连。部署 Workers 的情况未实测，不代表不会被封禁。
+
+然后问我是否在了解上述风险后继续。只有我明确回答继续，才执行后续步骤。其他任何回答，或没有回答，都停止，不做任何部署操作。
+不要把上述内容改写成封禁原因已证实的说法。
 
 ## 参数
 

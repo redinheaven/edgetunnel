@@ -2,6 +2,13 @@
 
 运行在 Cloudflare Workers 上的 VLESS over WebSocket 代理。
 
+## ⚠️ 部署风险
+
+- 已观察到的情况（2026-10-08）：将本仓库 `claude/vibrant-albattani-5cg6ix` 分支（commit `af3bc4d`）部署到一个新建的 Cloudflare Pages 项目。第一次部署成功；第二次部署时报错 `Your Pages project has been blocked. Contact abusereply@cloudflare.com. [code: 8000119]`，项目被封禁。Cloudflare 没有说明封禁原因。
+- Cloudflare Self-Serve Subscription Agreement 第 2.2.1(j) 条禁止使用其服务提供 VPN 或类似代理服务。本项目是代理程序。
+- 部署到自己的 Cloudflare 账户，项目可能被封禁，账户也可能受牵连。部署 Workers 的情况未实测，不代表不会被封禁。
+- 部署前请自行阅读该协议并评估风险。
+
 ## 文件
 
 | 文件 | 说明 |
@@ -48,6 +55,8 @@ npm run deploy        # 部署 wrangler.toml 中 main 指定的文件
 `wrangler.toml` 的 `[vars]` 中列出了可用的环境变量。
 
 ### 用 Claude Code 部署
+
+部署前请先阅读上方「部署风险」。`/deploy` 会先显示风险并要求确认，未明确确认不会部署。
 
 在仓库目录中运行 `/deploy [workers|pages] [名称] [vless|socks5] [分支]`，例如 `/deploy pages my-edgetunnel vless main`。
 UUID 等变量从环境变量 `EDGETUNNEL_UUID`、`EDGETUNNEL_PROXYIP`、`EDGETUNNEL_SOCKS5`、`EDGETUNNEL_SOCKS5_PIPELINE`、`EDGETUNNEL_DEBUG` 读取，以 secret 方式设置。完整步骤见 `.claude/commands/deploy.md`。
